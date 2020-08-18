@@ -1,6 +1,5 @@
 #!/bin/sh
 
 bundle install &&
-inspec exec . -t ssh://${INSPEC_USER}@${INSPEC_IP} --key-files "${INSPEC_SSH_KEY}" --format html >> reports/results.html
-inspec exec . -t ssh://${INSPEC_USER}@${INSPEC_IP} --key-files "${INSPEC_SSH_KEY}" --format json-rspec >> reports/results.json
-
+cinc-auditor exec . -t ssh://${INSPEC_USER}@${INSPEC_IP} --key-files "${INSPEC_SSH_KEY}" --reporter html >> reports/results.html
+cinc-auditor exec . -t ssh://${INSPEC_USER}@${INSPEC_IP} --key-files "${INSPEC_SSH_KEY}" --reporter json >> reports/results.json
